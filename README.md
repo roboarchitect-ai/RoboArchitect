@@ -3,6 +3,7 @@
 
 [![Website](https://img.shields.io/badge/🌐_Website-RoboArchitect-1B7F5A)](https://roboarchitect-ai.github.io/)
 [![Paper](https://img.shields.io/badge/📄_Paper-arXiv-b31b1b)](https://arxiv.org/abs/2610.42141)
+[![Hugging Face](https://img.shields.io/badge/🤗_Paper-Hugging_Face-FFD21E)](https://huggingface.co/papers/2610.42141)
 
 </div>
 
@@ -186,10 +187,13 @@ splits/          ready-made lists of training and held-out episodes
 ## Citation
 
 ```bibtex
-@article{wu2026roboarchitect,
-  title   = {RoboArchitect: Automating the Design of Robotic Agents with Persistent Memory},
-  author  = {Wu, Shengguang and Huang, Suning and Ho, Cherie and Doshi, Ria and Zhu, Hao and Yeung-Levy, Serena},
-  journal = {arXiv preprint arXiv:2610.42141},
-  year    = {2026}
+@misc{wu2026roboarchitect,
+      title={RoboArchitect: Automating the Design of Robotic Agents with Persistent Memory}, 
+      author={Shengguang Wu and Suning Huang and Cherie Ho and Ria Doshi and Hao Zhu and Serena Yeung-Levy},
+      year={2026},
+      eprint={2610.42141},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2610.42141}, 
 }
 ```
