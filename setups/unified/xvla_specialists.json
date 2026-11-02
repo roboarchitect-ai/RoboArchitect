@@ -1,0 +1,2287 @@
+{
+  "metric": "equal_benchmark_task_macro_score",
+  "tools": {
+    "detection": "grounding-dino",
+    "grasp": null,
+    "language": "qwen-language",
+    "pointing": "molmo2-pointing",
+    "segmentation": "sam3",
+    "vision": "molmo2-vision"
+  },
+  "suites": {
+    "libero_pro_10_lan": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_10_lan"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_10_object": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_10_object"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_10_swap": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_10_swap"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_10_task": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_10_task"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_goal_lan": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_goal_lan"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_goal_object": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_goal_object"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_goal_swap": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_goal_swap"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_goal_task": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_goal_task"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_object_lan": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_object_lan"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_object_object": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_object_object"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_object_swap": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_object_swap"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_object_task": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_object_task"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_spatial_lan": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_spatial_lan"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_spatial_object": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_spatial_object"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_spatial_swap": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_spatial_swap"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "libero_pro_spatial_task": {
+      "environment": {
+        "simulator": "benchmarks.libero_pro:XVLALiberoProSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "libero_pro_spatial_task"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Libero",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "simpler_google_pool": {
+      "environment": {
+        "simulator": "benchmarks.simpler:SimplerGoogleSimulator",
+        "cameras": [
+          {
+            "frame_id": "overhead_camera",
+            "has_depth": true,
+            "height": 512,
+            "name": "main",
+            "optical_convention": "opencv_rdf",
+            "width": 640
+          }
+        ],
+        "embodiment": "Google Robot mobile manipulator with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "tcp",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "robot_base",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          }
+        ],
+        "suite": "simpler_google_pool"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Google-Robot",
+        "adapter": "google",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.3333333333333333,
+          "controller_output_scale": [],
+          "coordinate_frame": "robot_base",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "euler_xyz",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "simpler_google_vm": {
+      "environment": {
+        "simulator": "benchmarks.simpler:SimplerGoogleSimulator",
+        "cameras": [
+          {
+            "frame_id": "overhead_camera",
+            "has_depth": true,
+            "height": 512,
+            "name": "main",
+            "optical_convention": "opencv_rdf",
+            "width": 640
+          }
+        ],
+        "embodiment": "Google Robot mobile manipulator with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "tcp",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "robot_base",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          }
+        ],
+        "suite": "simpler_google_vm"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Google-Robot",
+        "adapter": "google",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.3333333333333333,
+          "controller_output_scale": [],
+          "coordinate_frame": "robot_base",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "euler_xyz",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "simpler_widowx_pool": {
+      "environment": {
+        "simulator": "benchmarks.simpler:SimplerWidowXPoolSimulator",
+        "cameras": [
+          {
+            "frame_id": "3rd_view_camera",
+            "has_depth": true,
+            "height": 480,
+            "name": "main",
+            "optical_convention": "opencv_rdf",
+            "width": 640
+          }
+        ],
+        "embodiment": "WidowX 250S with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "tcp",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "robot_base",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          }
+        ],
+        "suite": "simpler_widowx_pool"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-WidowX",
+        "adapter": "widowx",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.2,
+          "controller_output_scale": [],
+          "coordinate_frame": "robot_base",
+          "gripper_convention": "open_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "euler_xyz",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "simpler_widowx_vm": {
+      "environment": {
+        "simulator": "benchmarks.simpler:SimplerWidowXSimulator",
+        "cameras": [
+          {
+            "frame_id": "3rd_view_camera",
+            "has_depth": true,
+            "height": 480,
+            "name": "main",
+            "optical_convention": "opencv_rdf",
+            "width": 640
+          }
+        ],
+        "embodiment": "WidowX 250S with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "tcp",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "robot_base",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          }
+        ],
+        "suite": "simpler_widowx_vm"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-WidowX",
+        "adapter": "widowx",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.2,
+          "controller_output_scale": [],
+          "coordinate_frame": "robot_base",
+          "gripper_convention": "open_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "euler_xyz",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "vlabench_pool": {
+      "environment": {
+        "simulator": "benchmarks.vlabench:VLABenchPoolSimulator",
+        "cameras": [
+          {
+            "frame_id": "vlabench_camera_2",
+            "has_depth": true,
+            "height": 480,
+            "name": "front",
+            "optical_convention": "opencv_rdf",
+            "width": 480
+          },
+          {
+            "frame_id": "vlabench_camera_0",
+            "has_depth": true,
+            "height": 480,
+            "name": "main",
+            "optical_convention": "opencv_rdf",
+            "width": 480
+          },
+          {
+            "frame_id": "vlabench_wrist_camera",
+            "has_depth": true,
+            "height": 480,
+            "name": "wrist",
+            "optical_convention": "opencv_rdf",
+            "width": 480
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qw",
+              "qx",
+              "qy",
+              "qz"
+            ],
+            "frame_id": "end_effector",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "wxyz",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "closed_flag"
+            ],
+            "frame_id": "franka_hand",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "normalized"
+            ]
+          }
+        ],
+        "suite": "vlabench_pool"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-VLABench",
+        "adapter": "vlabench",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "left_finger",
+            "right_finger"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute"
+          ],
+          "control_period_s": null,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "none",
+          "quaternion_order": "none",
+          "rotation_representation": "euler_xyz",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    },
+    "vlabench_tracks_1_4": {
+      "environment": {
+        "simulator": "benchmarks.vlabench:VLABenchSimulator",
+        "cameras": [
+          {
+            "frame_id": "vlabench_camera_2",
+            "has_depth": true,
+            "height": 480,
+            "name": "front",
+            "optical_convention": "opencv_rdf",
+            "width": 480
+          },
+          {
+            "frame_id": "vlabench_camera_0",
+            "has_depth": true,
+            "height": 480,
+            "name": "main",
+            "optical_convention": "opencv_rdf",
+            "width": 480
+          },
+          {
+            "frame_id": "vlabench_wrist_camera",
+            "has_depth": true,
+            "height": 480,
+            "name": "wrist",
+            "optical_convention": "opencv_rdf",
+            "width": 480
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qw",
+              "qx",
+              "qy",
+              "qz"
+            ],
+            "frame_id": "end_effector",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "wxyz",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "closed_flag"
+            ],
+            "frame_id": "franka_hand",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "normalized"
+            ]
+          }
+        ],
+        "suite": "vlabench_tracks_1_4"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-VLABench",
+        "adapter": "vlabench",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "left_finger",
+            "right_finger"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute"
+          ],
+          "control_period_s": null,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "none",
+          "quaternion_order": "none",
+          "rotation_representation": "euler_xyz",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    }
+  }
+}

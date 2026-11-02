@@ -1,0 +1,27 @@
+{
+  "python": {
+    "harness": "<HARNESS_ENV_PATH>/bin/python",
+    "libero_pro": "<LIBERO_PRO_ENV_PATH>/bin/python",
+    "robocerebra": "<ROBOCEREBRA_ENV_PATH>/bin/python",
+    "vlabench": "<VLABENCH_ENV_PATH>/bin/python",
+    "simpler": "<SIMPLERENV_ENV_PATH>/bin/python",
+    "robocasa": "<ROBOCASA_ENV_PATH>/bin/python",
+    "xvla": "<X_VLA_ENV_PATH>/bin/python",
+    "pi05": "<LEROBOT_ENV_PATH>/bin/python",
+    "smolvla": "<LEROBOT_ENV_PATH>/bin/python",
+    "rlinf_pi05": "<RLINF_ENV_PATH>/bin/python",
+    "molmoact2": "<MOLMOACT2_ENV_PATH>/bin/python",
+    "openvla": "<OPENVLA_ENV_PATH>/bin/python",
+    "rldx": "<RLDX_ENV_PATH>/bin/python",
+    "language": "<QWEN3_ENV_PATH>/bin/python",
+    "vision": "<QWEN3_VL_ENV_PATH>/bin/python",
+    "molmo2": "<MOLMO2_ENV_PATH>/bin/python",
+    "grounding_dino": "<GROUNDING_DINO_ENV_PATH>/bin/python",
+    "sam3": "<SAM3_ENV_PATH>/bin/python",
+    "graspgen": "<GRASPGEN_ENV_PATH>/bin/python"
+  },
+  "repositories": {
+    "xvla": "<X_VLA_REPO_PATH>",
+    "rlinf": "<RLINF_REPO_PATH>"
+  }
+}

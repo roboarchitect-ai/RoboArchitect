@@ -1,0 +1,128 @@
+{
+  "metric": "equal_track_task_macro_progress_score",
+  "tools": {
+    "detection": "grounding-dino",
+    "grasp": "graspgen",
+    "language": "qwen-language",
+    "pointing": "molmo2-pointing",
+    "segmentation": "sam3",
+    "vision": "molmo2-vision"
+  },
+  "suites": {
+    "vlabench_tracks_1_4": {
+      "environment": {
+        "simulator": "benchmarks.vlabench:VLABenchSimulator",
+        "cameras": [
+          {
+            "frame_id": "vlabench_camera_2",
+            "has_depth": true,
+            "height": 480,
+            "name": "front",
+            "optical_convention": "opencv_rdf",
+            "width": 480
+          },
+          {
+            "frame_id": "vlabench_camera_0",
+            "has_depth": true,
+            "height": 480,
+            "name": "main",
+            "optical_convention": "opencv_rdf",
+            "width": 480
+          },
+          {
+            "frame_id": "vlabench_wrist_camera",
+            "has_depth": true,
+            "height": 480,
+            "name": "wrist",
+            "optical_convention": "opencv_rdf",
+            "width": 480
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qw",
+              "qx",
+              "qy",
+              "qz"
+            ],
+            "frame_id": "end_effector",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "wxyz",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "closed_flag"
+            ],
+            "frame_id": "franka_hand",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "normalized"
+            ]
+          }
+        ],
+        "suite": "vlabench_tracks_1_4"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Pt",
+        "adapter": "vlabench",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "left_finger",
+            "right_finger"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute"
+          ],
+          "control_period_s": null,
+          "controller_output_scale": [],
+          "coordinate_frame": "world",
+          "gripper_convention": "none",
+          "quaternion_order": "none",
+          "rotation_representation": "euler_xyz",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    }
+  }
+}

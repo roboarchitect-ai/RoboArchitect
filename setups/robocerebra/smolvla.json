@@ -1,0 +1,128 @@
+{
+  "metric": "equal_condition_case_macro_success",
+  "tools": {
+    "detection": "grounding-dino",
+    "grasp": "graspgen",
+    "language": "qwen-language",
+    "pointing": "molmo2-pointing",
+    "segmentation": "sam3",
+    "vision": "molmo2-vision"
+  },
+  "suites": {
+    "robocerebra_public60": {
+      "environment": {
+        "simulator": "benchmarks.robocerebra:RoboCerebraSimulator",
+        "cameras": [
+          {
+            "frame_id": "agentview",
+            "has_depth": true,
+            "height": 256,
+            "name": "main",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "wrist",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Franka Panda with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_position",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "robocerebra_public60"
+      },
+      "policy": {
+        "server": "smolvla",
+        "checkpoint": "lerobot/smolvla_robocerebra",
+        "adapter": "libero",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "dx",
+            "dy",
+            "dz",
+            "drx",
+            "dry",
+            "drz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "delta",
+            "delta",
+            "delta",
+            "delta",
+            "delta",
+            "delta",
+            "binary"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [
+            0.05,
+            0.05,
+            0.05,
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          "coordinate_frame": "world",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "normalized_controller"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    }
+  }
+}

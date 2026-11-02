@@ -1,0 +1,203 @@
+{
+  "metric": "equal_group_task_macro_success",
+  "tools": {
+    "detection": "grounding-dino",
+    "grasp": null,
+    "language": "qwen-language",
+    "pointing": "molmo2-pointing",
+    "segmentation": "sam3",
+    "vision": "molmo2-vision"
+  },
+  "suites": {
+    "robocasa365_target": {
+      "environment": {
+        "simulator": "benchmarks.robocasa:RoboCasa365Simulator",
+        "cameras": [
+          {
+            "frame_id": "robot0_agentview_left",
+            "has_depth": true,
+            "height": 256,
+            "name": "robot0_agentview_left",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_agentview_right",
+            "has_depth": true,
+            "height": 256,
+            "name": "robot0_agentview_right",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          },
+          {
+            "frame_id": "robot0_eye_in_hand",
+            "has_depth": true,
+            "height": 256,
+            "name": "robot0_eye_in_hand",
+            "optical_convention": "opengl_rub",
+            "width": 256
+          }
+        ],
+        "embodiment": "Panda arm and gripper on Omron mobile base",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z"
+            ],
+            "frame_id": "robot0_base",
+            "name": "base_position",
+            "quantity": "base_pose",
+            "quaternion_order": "none",
+            "reference_frame": "world",
+            "representation": "vector",
+            "units": [
+              "meter",
+              "meter",
+              "meter"
+            ]
+          },
+          {
+            "component_names": [
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_base",
+            "name": "base_rotation",
+            "quantity": "base_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "world",
+            "representation": "quaternion",
+            "units": [
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z"
+            ],
+            "frame_id": "robot0_eef_body",
+            "name": "end_effector_position_relative",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "none",
+            "reference_frame": "robot0_base",
+            "representation": "vector",
+            "units": [
+              "meter",
+              "meter",
+              "meter"
+            ]
+          },
+          {
+            "component_names": [
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "robot0_eef_body",
+            "name": "end_effector_rotation_relative",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "robot0_base",
+            "representation": "quaternion",
+            "units": [
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          },
+          {
+            "component_names": [
+              "left_finger_joint",
+              "right_finger_joint"
+            ],
+            "frame_id": "robot0_gripper",
+            "name": "gripper_qpos",
+            "quantity": "gripper_position",
+            "quaternion_order": "none",
+            "reference_frame": "none",
+            "representation": "vector",
+            "units": [
+              "radian",
+              "radian"
+            ]
+          }
+        ],
+        "suite": "robocasa365_target"
+      },
+      "policy": {
+        "server": "rldx",
+        "checkpoint": "RLWRLD/RLDX-1-FT-RC365",
+        "adapter": "robocasa",
+        "action_spec": {
+          "arm_names": [
+            "right_arm",
+            "mobile_base",
+            "torso"
+          ],
+          "channel_names": [
+            "right_arm_base_dx",
+            "right_arm_base_dy",
+            "right_arm_base_dz",
+            "right_arm_base_drx",
+            "right_arm_base_dry",
+            "right_arm_base_drz",
+            "right_gripper_close",
+            "mobile_base_vx",
+            "mobile_base_vy",
+            "mobile_base_yaw_velocity",
+            "torso_joint_delta",
+            "base_control_mode"
+          ],
+          "channel_semantics": [
+            "delta",
+            "delta",
+            "delta",
+            "delta",
+            "delta",
+            "delta",
+            "binary",
+            "velocity",
+            "velocity",
+            "velocity",
+            "delta",
+            "categorical"
+          ],
+          "control_period_s": 0.05,
+          "controller_output_scale": [
+            0.05,
+            0.05,
+            0.05,
+            0.5,
+            0.5,
+            0.5,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.05,
+            1.0
+          ],
+          "coordinate_frame": "per_channel_robot_base_frames",
+          "gripper_convention": "closed_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "axis_angle",
+          "translation_unit": "meter",
+          "value_encoding": "normalized_controller"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    }
+  }
+}

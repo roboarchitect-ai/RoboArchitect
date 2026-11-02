@@ -1,0 +1,96 @@
+{
+  "metric": "task_macro_success",
+  "tools": {
+    "detection": "grounding-dino",
+    "grasp": null,
+    "language": "qwen-language",
+    "pointing": "molmo2-pointing",
+    "segmentation": "sam3",
+    "vision": "qwen-vision"
+  },
+  "suites": {
+    "simpler_widowx_vm": {
+      "environment": {
+        "simulator": "benchmarks.simpler:SimplerWidowXSimulator",
+        "cameras": [
+          {
+            "frame_id": "3rd_view_camera",
+            "has_depth": true,
+            "height": 480,
+            "name": "main",
+            "optical_convention": "opencv_rdf",
+            "width": 640
+          }
+        ],
+        "embodiment": "WidowX 250S with parallel gripper",
+        "robot_state": [
+          {
+            "component_names": [
+              "x",
+              "y",
+              "z",
+              "qx",
+              "qy",
+              "qz",
+              "qw"
+            ],
+            "frame_id": "tcp",
+            "name": "eef_pose",
+            "quantity": "end_effector_pose",
+            "quaternion_order": "xyzw",
+            "reference_frame": "robot_base",
+            "representation": "xyz_quaternion",
+            "units": [
+              "meter",
+              "meter",
+              "meter",
+              "quaternion",
+              "quaternion",
+              "quaternion",
+              "quaternion"
+            ]
+          }
+        ],
+        "suite": "simpler_widowx_vm"
+      },
+      "policy": {
+        "server": "xvla",
+        "checkpoint": "2toINF/X-VLA-Pt",
+        "adapter": "widowx",
+        "action_spec": {
+          "arm_names": [
+            "arm"
+          ],
+          "channel_names": [
+            "x",
+            "y",
+            "z",
+            "rx",
+            "ry",
+            "rz",
+            "gripper"
+          ],
+          "channel_semantics": [
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "absolute",
+            "binary"
+          ],
+          "control_period_s": 0.2,
+          "controller_output_scale": [],
+          "coordinate_frame": "robot_base",
+          "gripper_convention": "open_positive",
+          "quaternion_order": "none",
+          "rotation_representation": "euler_xyz",
+          "translation_unit": "meter",
+          "value_encoding": "physical"
+        },
+        "chunk_horizon": 1,
+        "execution_count": 1
+      }
+    }
+  }
+}
