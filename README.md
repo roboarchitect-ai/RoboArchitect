@@ -4,6 +4,7 @@
 [![Website](https://img.shields.io/badge/🌐_Website-RoboArchitect-1B7F5A)](https://roboarchitect-ai.github.io/)
 [![Paper](https://img.shields.io/badge/📄_Paper-arXiv-b31b1b)](https://arxiv.org/abs/2610.42141)
 [![Hugging Face](https://img.shields.io/badge/🤗_Paper-Hugging_Face-FFD21E)](https://huggingface.co/papers/2610.42141)
+[![X Thread](https://img.shields.io/badge/Thread-on_X-black?logo=x&logoColor=white)](https://x.com/ShengguangWu/status/2117406806284911001)
 
 </div>
 
